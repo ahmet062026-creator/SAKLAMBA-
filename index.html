@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boyamalı Saklambaç: Uzay Teması (GitHub Versiyonu)</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PeerJS Kütüphanesi -->
+    <script src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Giriş Ekranı -->
+        <div id="login-screen" class="screen active">
+            <h1>Boyamalı Saklambaç</h1>
+            <p>Uzay Teması 🚀 (Sunucusuz P2P)</p>
+            <input type="text" id="player-name" placeholder="Adınızı girin" required>
+            
+            <div class="actions">
+                <button id="btn-create-room">Oda Oluştur</button>
+                <div class="join-section">
+                    <input type="text" id="room-code-input" placeholder="6 Haneli Oda Kodu" maxlength="6">
+                    <button id="btn-join-room">Katıl</button>
+                </div>
+            </div>
+            <p id="login-error" class="error"></p>
+            <p id="loading-msg" class="loading"></p>
+        </div>
+
+        <!-- Bekleme Odası (Lobi) -->
+        <div id="lobby-screen" class="screen">
+            <h2>Oda Kodu: <span id="lobby-room-code"></span></h2>
+            <h3>Oyuncular:</h3>
+            <ul id="player-list"></ul>
+            <p id="lobby-status"></p>
+            <button id="btn-start-game" style="display: none;">Oyunu Başlat</button>
+        </div>
+
+        <!-- Oyun Ekranı -->
+        <div id="game-screen" class="screen">
+            <div id="game-info">
+                <span id="role-display"></span>
+                <span id="timer-display"></span>
+            </div>
+            <div id="game-area">
+                <div id="space-map"></div>
+            </div>
+            <p id="game-message"></p>
+        </div>
+
+        <!-- Oyun Sonu Ekranı -->
+        <div id="game-over-screen" class="screen">
+            <h2 id="result-message"></h2>
+            <button id="btn-back-to-lobby">Lobiye Dön</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
